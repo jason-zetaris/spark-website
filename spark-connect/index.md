@@ -30,7 +30,7 @@ Let’s go through these steps in more detail to get a better understanding of t
 
 The network communication for Spark Connect uses the [gRPC framework](https://grpc.io/).
 
-gRPC is performant and language agnostic whic makes Spark Connect portable.
+gRPC is performant and language agnostic which makes Spark Connect portable.
 
 **Converting a DataFrame query to an unresolved logical plan**
 
