@@ -84,9 +84,9 @@ Let’s now turn our attention to the benefits of the Spark Connect architecture
 
 **Spark Connect workloads are easier to maintain**
 
-With the Spark Classic architecture, the client and Spark Driver must run identical software versions.  They need the same Java, Scala, and other dependency versions.  Suppose you develop a Spark project on your local machine, package it as a JAR file, and deploy it in the cloud to run on a production dataset.  You need to build the JAR file on your local machine with the same dependencies used in the cloud.  If you compile the JAR file with Scala 2.13, you must also provision the cluster with a Spark JAR compiled with Scala 2.13.
+When you do not use Spark Connect, the client and Spark Driver must run identical software versions.  They need the same Java, Scala, and other dependency versions.  Suppose you develop a Spark project on your local machine, package it as a JAR file, and deploy it in the cloud to run on a production dataset.  You need to build the JAR file on your local machine with the same dependencies used in the cloud.  If you compile the JAR file with Scala 2.13, you must also provision the cluster with a Spark JAR compiled with Scala 2.13.
 
-Suppose you are building your JAR with Scala 2.12, and your cloud provider releases a new runtime built with Scala 2.13.  For Spark Classic, you need to update your project locally, which may be challenging.  For example, when you update your project to Scala 2.13, you must also upgrade all the project dependencies (and transitive dependencies) to Scala 2.13.  If some of those JAR files don’t exist, you can’t upgrade.
+Suppose you are building your JAR with Scala 2.12, and your cloud provider releases a new runtime built with Scala 2.13.  When you don't use Spark Connect, you need to update your project locally, which may be challenging.  For example, when you update your project to Scala 2.13, you must also upgrade all the project dependencies (and transitive dependencies) to Scala 2.13.  If some of those JAR files don’t exist, you can’t upgrade.
 
 In contrast, Spark Connect decouples the client and the Spark Driver, so you can update the Spark Driver including server-side dependencies without updating the client.  This makes Spark projects much easier to maintain.  In particular, for pure Python workloads, decoupling Python from the Java dependency on the client improves the overall user experience with Apache Spark.
 
@@ -118,7 +118,7 @@ Go isn’t the only language that will benefit from this architecture.
 
 Spark Connect also enables you to embed Spark in text editors on remote clusters without SSH (“remote development”).
 
-Embedding Spark in text editors with Classic Spark requires a Spark Session running locally or an SSH connection to a remote Spark Driver.
+When you do not use Spark Connect, embedding Spark in text editors with Spark requires a Spark Session running locally or an SSH connection to a remote Spark Driver.
 
 Spark Connect lets you connect to a remote Spark Driver with a connection that’s fully embedded in a text editor without SSH.  This provides users with a better experience when developing code in a text editor like VS Code on a remote Spark cluster.
 
