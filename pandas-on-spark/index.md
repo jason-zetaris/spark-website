@@ -103,7 +103,7 @@ This returns the wrong result, even though the group by aggregation logic is rig
 
 With pandas, you need to manually apply column pruning and row-group filtering when reading a Parquet file.  With pandas on Spark, the Spark optimizer automatically applies these query enhancements, so you do not need to type them manually.
 
-Lets investigate the advantages of pandas on Spark in more detail.
+Let's investigate the advantages of pandas on Spark in more detail.
 
 ## Advantages of pandas on Spark
 
@@ -127,7 +127,7 @@ pandas is notorious for erroring out when dataset sizes grow and Spark doesn't h
 
 Spark can be run on a single machine or distributed to many machines in a cluster.
 
-When Spark is run on a single machine, the computations are run on all available cores.  This is faster than pandas which only runs computations on a single core.
+When Spark is run on a single machine, the computations are run on all available cores.  This is often faster than pandas which only runs computations on a single core.
 
 Scaling computations on multiple machines is great for when you want to run computations on larger data sets or simply access more RAM/cores so the queries run faster.
 
@@ -167,9 +167,9 @@ You can clean and aggregate the dataset with pandas on Spark to take advantage o
 
 pandas on Spark executes queries completely differently than pandas.
 
-pandas on Spark converts the query to an unresolved logical plan, optimizes it with Spark, and then executes it.
+pandas on Spark uses lazy evaluation.  It converts the query to an unresolved logical plan, optimizes it with Spark, and only runs computations when results are requested.
 
-pandas loads all the data into memory and then executes the query with the pandas engine.  There are not any query optimization and all the data must be loaded into memory before the query is executed.
+pandas uses eager evaluation.  It loads all the data into memory and executes operations immediately when they are invoked.  pandas does not apply query optimization and all the data must be loaded into memory before the query is executed.
 
 When comparing pandas on Spark and pandas, you must be careful to factor in how much time it takes to load the data into memory and how much time it takes to run the query.  A lot of datasets take a long time to load into pandas.
 
