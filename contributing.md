@@ -209,21 +209,20 @@ When writing error messages, you should:
 
 See the <a href="{{site.baseurl}}/error-message-guidelines.html">error message guidelines</a> for more details.
 
-<h3>Making behavior changes</h3>
+<h3>Behavior changes</h3>
 
-Behavior changes mean user-visible functional changes in a new release via public APIs. The "user" here is not 
+Behavior changes are user-visible functional changes in a new release via public APIs. The "user" here is not 
 only the user who writes queries and/or develops Spark plugins, but also the user who deploys and/or manages 
-Spark clusters. New features, and even bug fixes that eliminate NPE or correct query results, are behavior 
-changes. Things like performance improvement, code refactoring, and changes to unreleased APIs/features are 
+Spark clusters. New features and bug fixes that eliminate `NullPointerException` or correct query results, are behavior 
+changes. However, performance improvement, code refactoring, and changes to unreleased APIs/features are 
 not.
 
-Everyone makes mistakes and so do Spark developers. We will keep fixing the wrong behaviors in Spark if there 
-are any. However, it's important to communicate these behavior changes to the Spark users, so that they can get 
-prepared when upgrading to new Spark versions. If a PR introduces behavior changes, it should be called out 
-explicitly in the PR description. If the behavior change may require additional user actions, we should mention 
-it in the migration guide and if possible add a legacy config to restore the behavior. Some examples:
+Everyone makes mistakes and so do Spark developers. We will continue to fix defects in Spark as they arise. However, it's important to communicate these behavior changes, so that Spark users can be 
+prepared during Spark version upgrades. If a PR introduces behavior changes, it should be called out 
+explicitly in the PR description. If the behavior change may require additional user actions, this should be called 
+out in the migration guide and where possible provide options to restore the previous behavior. Some examples:
 
-- Bug fixes that change query results. Users may need to do backfill to correct the existing data and must
+- Bug fixes that change query results. Users may need to backfill to correct the existing data and must
 know about these correctness fixes.
 - Bug fixes that change query schema. Users may need to update the schema of the tables in their data pipelines
 and must know about these changes.
@@ -234,8 +233,8 @@ remove parameters, add parameters, rename parameters, change parameter default v
 be avoided in general, or done in a binary-compatible way like deprecating and adding a new function instead of renaming.
 - Any non-additive change to the way Spark should be deployed and managed.
 
-The list above is not supposed to be comprehensive. Anyone can raise your concern when reviewing PRs and ask the PR 
-author to add migration guide if you believe the change is risky and may break users.
+The list above is not supposed to be comprehensive. Anyone reviewing a PR can ask the PR 
+author to add migration guide if they believe the change is risky and may break users on upgrade.
 
 <h3>Code review criteria</h3>
 
