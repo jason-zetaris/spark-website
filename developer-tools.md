@@ -210,7 +210,7 @@ Although GitHub Actions provide both K8s unit test and integration test coverage
 
 <h4>Running the Docker integration tests</h4>
 
-Docker integration tests are covered by GitHub Actions. However, you can run it locally to speedup deveplopment and testing.
+Docker integration tests are covered by GitHub Actions. However, you can run it locally to speedup development and testing.
 Please refer the [Docker integration test documentation](https://github.com/apache/spark/blob/master/connector/docker-integration-tests/README.md) for the detail.
 
 <h3>Testing with GitHub Actions workflow</h3>
@@ -282,7 +282,7 @@ A binary incompatibility reported by MiMa might look like the following:
 
 <h4>Solving a binary incompatibility</h4>
 
-If you believe that your binary incompatibilies are justified or that MiMa
+If you believe that your binary incompatibilities are justified or that MiMa
 reported false positives (e.g. the reported binary incompatibilities are about a
 non-user facing API), you can filter them out by adding an exclusion in
 [project/MimaExcludes.scala](https://github.com/apache/spark/blob/master/project/MimaExcludes.scala)
@@ -296,7 +296,7 @@ For the problem described above, we might add the following:
 ProblemFilters.exclude[DirectMissingMethodProblem]("org.apache.spark.SomeClass.this")
 {% endhighlight %}
 
-Otherwise, you will have to resolve those incompatibilies before opening or
+Otherwise, you will have to resolve those incompatibilities before opening or
 updating your pull request. Usually, the problems reported by MiMa are
 self-explanatory and revolve around missing members (methods or fields) that
 you will have to add back in order to maintain binary compatibility.
@@ -555,7 +555,7 @@ Make sure to do this for both security groups.
 Note: by default, `spark-ec2` re-uses security groups: if you stop this cluster and launch another 
 cluster with the same name, your security group settings will be re-used.
 - Launch the YourKit profiler on your desktop.
-- Select "Connect to remote application..." from the welcome screen and enter the the address of your Spark master or worker machine, e.g. `ec2--.compute-1.amazonaws.com`
+- Select "Connect to remote application..." from the welcome screen and enter the address of your Spark master or worker machine, e.g. `ec2--.compute-1.amazonaws.com`
 - YourKit should now be connected to the remote profiling agent. It may take a few moments for profiling information to appear.
 
 Please see the full YourKit documentation for the full list of profiler agent
