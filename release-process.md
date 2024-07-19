@@ -7,6 +7,8 @@ navigation:
   show: true
 ---
 
+<h1>Preparing Spark releases</h1>
+
 The release manager role in Spark means you are responsible for a few different things:
 
 - [Preparing your setup](#preparing-your-setup)
