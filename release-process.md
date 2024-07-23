@@ -403,7 +403,7 @@ $ export PREVIOUS_RELEASE_TAG=v1.1.0
 $ ./generate-contributors.py
 # set GITHUB_OAUTH_KEY.
 $ export GITHUB_OAUTH_KEY=blabla
-# set either JIRA_ACCESS_TOKEN (for 4.0.0 and later) or JIRA_USERNAME / JIRA_PASSWORD.
+# Set either JIRA_ACCESS_TOKEN (for 4.0.0 and later) or JIRA_USERNAME / JIRA_PASSWORD.
 $ export JIRA_ACCESS_TOKEN=blabla
 $ export JIRA_USERNAME=blabla
 $ export JIRA_PASSWORD=blabla
